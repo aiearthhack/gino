@@ -2,6 +2,10 @@ import streamlit as st
 from rag import chat
 import uuid
 
+import streamlit as st
+from rag import chat
+import uuid
+
 st.title("Ask Me")
 
 # Initializing global variables
@@ -18,13 +22,16 @@ def initialize_session_state():
     if "greeting_displayed" not in st.session_state: 
         st.session_state.greeting_displayed = False   
 
+def greeting():
+    if not st.session_state.greeting_displayed:
+        greeting_msg = "Hi! GinoChat here, ready to embark on a knowledge journey?"
+        st.session_state.messages.append({"role": "assistant", "content": greeting_msg})
+        st.session_state.greeting_displayed = True
+
 def display_chat_history():
-    displayed_conversations = set()
     for message in st.session_state.messages: 
         if message["role"] == "assistant":
-            if message["content"] not in displayed_conversations:
-                st.chat_message("assistant").write(message["content"])
-                displayed_conversations.add(message["content"])
+            st.chat_message("assistant").write(message["content"])
         else:
             st.chat_message("user").write(message["content"])
 
@@ -39,19 +46,15 @@ def handle_chat():
         with st.spinner("Thinking..."):
             response = chat(prompt, st.session_state.session_id, st.session_state.user_id)['output']
         st.session_state.messages.append({"role": "assistant", "content": response})
-        with st.chat_message("assistant"):
-            st.markdown(response)
+        # with st.chat_message("assistant"):
+        #     st.markdown(response)
 
-def greeting():
-    if not st.session_state.greeting_displayed:
-        greeting_msg = "Hi! GinoChat here, ready to embark on a knowledge journey?"
-        st.session_state.messages.append({"role": "assistant", "content": greeting_msg})
+
 
 def show_askme():
     initialize_session_state()
     handle_chat()
     display_chat_history()
-
 
 if __name__ == "__main__":
     show_askme()

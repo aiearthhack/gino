@@ -7,7 +7,7 @@ import st_pages
 
 import auth
 
-st.set_page_config(page_title="Gino", page_icon=":sunglasses:")
+st.set_page_config(page_title="Gino", page_icon="🌎")
 
 if not auth.login():
     st.stop()

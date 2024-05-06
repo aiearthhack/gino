@@ -136,25 +136,25 @@ class AgentManger:
         self.tools = [HybridSearchTool, TavilySearchResults()]
         self.chat_agent = self.create_agent(instruction=self.config.get('chat_instruction'))
 
-        logging.basicConfig(
-            filename='./logs/conversation_logs.log',
-            level=logging.INFO,
-            format='%(asctime)s - %(message)s',
-            filemode='a'
-        )
-        print("Logging setup complete.")
+        # logging.basicConfig(
+        #     filename='./logs/conversation_logs.log',
+        #     level=logging.INFO,
+        #     format='%(asctime)s - %(message)s',
+        #     filemode='a'
+        # )
+        # print("Logging setup complete.")
 
-    def log_message(self, session_id, user_id, user_message, assistant_response):
-        log_entry = {
-            'session_id': session_id,
-            'user_id': user_id,
-            'user_message': user_message,
-            'assistant_response': assistant_response,
-            'timestamp': datetime.now().isoformat()
-        }
-        print("Logging entry:", log_entry)  # Check the log entry content
-        logging.info(json.dumps(log_entry))
-        print("Log entry written.")
+    # def log_message(self, session_id, user_id, user_message, assistant_response):
+    #     log_entry = {
+    #         'session_id': session_id,
+    #         'user_id': user_id,
+    #         'user_message': user_message,
+    #         'assistant_response': assistant_response,
+    #         'timestamp': datetime.now().isoformat()
+    #     }
+    #     print("Logging entry:", log_entry)  # Check the log entry content
+    #     logging.info(json.dumps(log_entry))
+    #     print("Log entry written.")
 
     def create_agent(self, instruction):
         """
@@ -199,8 +199,8 @@ class AgentManger:
             config={"configurable": {"session_id": session_id}, "callbacks": self.callbacks}
         )
 
-        # Log the conversation
-        self.log_message(session_id, user_id, input_message, result)
+        # # Log the conversation
+        # self.log_message(session_id, user_id, input_message, result)
 
         return result
 

@@ -19,6 +19,7 @@ st_pages.show_pages([
     st_pages.Page('pages/studio.py', 'Studio', '📝'),
     st_pages.Page('pages/summary.py', 'Summary', '📝'),
     st_pages.Page('pages/podcast.py', 'Podcast', '📝'),
+    st_pages.Page('pages/askme.py', 'Askme', '📝'),
     # st_pages.Page('pages/askme.py', 'Ask Me', '📝'),
     # st_pages.Page('pages/mindbase.py', 'Mind Base', '📝'),
     #st_pages.Section('Interview')

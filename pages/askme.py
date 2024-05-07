@@ -2,6 +2,7 @@ import streamlit as st
 from rag import chat
 import uuid
 
+st.set_page_config(page_title="Ask Me", page_icon="💬")
 st.title("Ask Me")
 
 # Initializing global variables

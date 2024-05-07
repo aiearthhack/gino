@@ -1,5 +1,10 @@
 import streamlit as st
 import json
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+
 
 def show_podcast():
 
@@ -7,7 +12,9 @@ def show_podcast():
 
     st.title("Podcast")
 
-    st.audio('files/audio.mp4', format="audio/mp4", start_time=0, sample_rate=None, end_time=None, loop=False, autoplay=False)
+    audio_file = os.getenv("AZURE_BLOB")
+    # print(audio_file)
+    st.audio(audio_file, format="audio/mp4", start_time=0, sample_rate=None, end_time=None, loop=False, autoplay=False)
 
     st.header("Powering the Future: Responsible AI and Malaysia's Tech Boom")
     st.write("Host: Gino.ai")

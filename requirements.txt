@@ -10,3 +10,4 @@ langchain-openai
 langchainhub
 langchain-community
 langchain
+azure-cosmos

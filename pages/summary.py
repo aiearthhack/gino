@@ -1,14 +1,11 @@
 import streamlit as st
 
+from summarization import summarize
+
 
 st.set_page_config(layout="wide")
 
 st.title("Smart Summarizer")
-
-
-def get_summary(data):
-    return "lorem ipsum..."
-
 
 data = {}
 data["length"] = st.sidebar.radio(
@@ -25,6 +22,6 @@ submit = st.sidebar.button("Submit")
 
 if submit:
     st.write(data)
-    st.session_state["summary"] = get_summary(data)
+    st.session_state["summary"] = summarize(st.session_state["captures"])
     st.write(st.session_state["summary"])
     st.page_link("pages/summary.py", label="Re-Generate Summary", icon="📝")

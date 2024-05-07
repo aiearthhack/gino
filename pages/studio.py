@@ -16,7 +16,8 @@ if "captures" in st.session_state:
     with st.container(height=500):
         for capture in st.session_state.captures:
             col1, col2, col3 = st.columns([0.2, 0.2, 0.6])
-            col1.image(capture["metadata"]["image"])
+            image = capture["metadata"]["image"] or "https://via.placeholder.com/150"
+            col1.image(image)
             col2.write(capture["metadata"]["title"])
             col3.write(capture["metadata"]["description"])
 

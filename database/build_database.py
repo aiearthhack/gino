@@ -9,6 +9,7 @@ import azure.cosmos.exceptions as exceptions
 from azure.cosmos.partition_key import PartitionKey
 
 from data_process import image_process, node_process, image_lists_process, text_process
+from openai_tools import summary_assistant
 
 HOST = config.settings['host']
 MASTER_KEY = config.settings['master_key']
@@ -155,19 +156,16 @@ def query_items(container, partition_key, query, parameters):
     print('Item queried by Partition Key {0}'.format(items[0].get("id")))
 
 
-def replace_item(container, doc_id, partition_key):
+def replace_item(container, doc_id, partition_key, original_feature, target_value):
     read_item = container.read_item(item=doc_id, partition_key=partition_key)
-    read_item['subtotal'] = read_item['subtotal'] + 1
+    read_item[original_feature] = target_value
     response = container.replace_item(item=read_item, body=read_item)
 
-    print('Replaced Item\'s Id is {0}, new subtotal={1}'.format(response['id'], response['subtotal']))
-
-
-def upsert_item(container, doc_id, partition_key):
+def upsert_item(container, doc_id, partition_key, target_feature, target_value):
     print('\nUpserting an item\n')
 
     read_item = container.read_item(item=doc_id, partition_key=partition_key)
-    read_item['subtotal'] = read_item['subtotal'] + 1
+    read_item[target_feature] = target_value
     response = container.upsert_item(body=read_item)
 
 
@@ -219,6 +217,12 @@ def document_save(doc_container, chunk_container, data):
     input_data = input_process(data)
     create_items(doc_container, input_data)
     chunk_save(chunk_container, input_data)
+
+# #Set up the two containers
+# document_container, search_data_container = set_up()
+
+# #Get the two containers
+document_container, search_data_container = get_containers()
 
 # #Set up the two containers
 # document_container, search_data_container = set_up()

@@ -28,8 +28,16 @@ Gino.AI leverages combined Azure Services and modern web technologies to create 
 * Azure AI Document Intelligence: Accurately extract PDF content, including text, key-value pairs, tables, and structures, from documents.<br>
 * Azure Cosmos PostgreSQL: Store structured data. <br>
 * Azure Cosmos DB NonSQL: Store unstructured data, including embeddings.<br>
-* OpenAI GPT-4: Cutting-edge LLM is used to generate personalized summaries and podcast scripts, and for chatbots to analyze user input and generated responses.<br>
+* OpenAI GPT-4: Cutting-edge LLM is used to generate personalized summaries and podcast scripts and for chatbots to analyze user input and generated responses.<br>
 * Azure AI Content Safety: Filter harmful content for RAG chatbot, summaries, and podcast scripts, ensuring responsible AI.
+### Universal Knowledge Capture:
+![architecture](https://github.com/aiearthhack/gino/blob/main/Gino.AI_%20Capture.png)
+### Smart Summary:
+![architecture](https://github.com/aiearthhack/gino/blob/main/Gino.AI_summary.png)
+### Personalized Podcast:
+![architecture](https://github.com/aiearthhack/gino/blob/main/Gino.AI_podcast.png)
+### Retrieval-augmented generation (RAG):
+![architecture](https://github.com/aiearthhack/gino/blob/main/Gino.AI_RAG.png)
 
 
 ## What's next for Gino.AI

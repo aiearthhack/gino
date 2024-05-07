@@ -6,14 +6,7 @@ beautifulsoup4
 numpy
 openai
 python-dotenv
-azure-core
-azure-cosmos
-tenacity
-feedparser
 langchain-openai
 langchainhub
-pydantic
 langchain-community
 langchain
-langchain-openai
-azure-search-documents

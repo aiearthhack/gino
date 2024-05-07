@@ -1,3 +1,6 @@
+<p align="center"><img src="https://github.com/aiearthhack/gino/blob/main/logo.png"></p>
+
+
 ## Inspiration
 We are a team of passionate GenAI enthusiasts and classmates from the University of Washington. We are inspired to build products that address our shared frustration. 
 We found ourselves overwhelmed by messy "read-it-later" lists, scattered saved content, and lost insights. Moreover, most information online is confined to a single format. However, we learn best in different ways and situations. We craved more digestible knowledge formats to match our busy lives.

@@ -32,13 +32,23 @@ Gino.AI leverages combined Azure Services and modern web technologies to create 
 * Azure AI Content Safety: Filter harmful content for RAG chatbot, summaries, and podcast scripts, ensuring responsible AI.
 ### Universal Knowledge Capture:
 ![architecture](https://github.com/aiearthhack/gino/blob/main/Gino.AI_%20Capture.png)
+In our system, the knowledge capture flow initiates on the front-end, allowing users to input content through various methods including URL text input, image upload, or our Chrome plugin. Users can add multiple captures to a staging area known as "Studio". From this point, the captured content is processed using Azure AI OCR and Document Intelligence to extract meaningful information.
+
+Once the data is captured and processed on the front-end, it is transmitted to the back-end where we utilize Cosmos DB for NoSQL as our database solution. We have established a database and configured two containers: 'Document', dedicated to storing documents, and 'Search', which holds chunks that are further utilized for Azure AI search. Upon receiving the ParseHTML input from the front-end, we employ LlamaIndex for text splitting and text-embedding-3-small for text embedding, ensuring effective data handling and retrieval.
 ### Smart Summary:
 ![architecture](https://github.com/aiearthhack/gino/blob/main/Gino.AI_summary.png)
+For summarization, we selected GPT-4-turbo due to its impressive context window size of 128,000. We also enable users to customize their summaries, including adjusting the length and format. Upon receiving a user request for summarization, we generate the summary and update it in the database.
+
 ### Personalized Podcast:
 ![architecture](https://github.com/aiearthhack/gino/blob/main/Gino.AI_podcast.png)
+To create a hyper-personalized podcast, we leveraged textual content and expertly crafted prompts for the Azure OpenAI Service, enabling the generation of highly relevant and engaging podcast content. Finally, we employed Azure Text to Speech to deliver a narrative experience that closely mimics human speech.
+
 ### Retrieval-augmented generation (RAG):
 ![architecture](https://github.com/aiearthhack/gino/blob/main/Gino.AI_RAG.png)
+Users can save articles into their personal MindBase, and our Retrieval Augmented Generation (RAG) chatbot enables users to interact with all the knowledge stored in their MindBase. Users can ask questions or chat with the MindBase assistant to learn more details about the saved content. To maintain accuracy and reduce hallucination, we use Azure Cognitive Search as our primary retrieval tool, utilizing both vector and full-text search to find relevant pieces of information. All entries in the Azure Cosmos DB NoSQL database are automatically indexed in Azure Cognitive Search.
 
+If there are questions that the assistant finds difficult to answer using only the information from the user's MindBase, it will ask the user for permission to use external internet search tools to find additional relevant knowledge. When providing answers, the assistant will include sources and links, allowing users to confirm the information's accuracy.
+To further enhance the user experience, we plan to make the chat history searchable and accessible. In the near future, we intend to store the chat history in an Azure Cosmos DB for PostgreSQL database, enabling users to easily retrieve and review previous conversations with the MindBase assistant.
 
 ## What's next for Gino.AI
 ### Phase 1: User Experience and Core Functionality<br>

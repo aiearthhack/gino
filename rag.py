@@ -43,7 +43,7 @@ def generate_embeddings(text):
         return None
 
 
-def hybrid_search(query, user_id, index_name="gino-vector-search-index"):
+def hybrid_search(query, user_id, index_name="gino-ai-search-index"):
     ai_search_endpoint = os.getenv("cognitive_search_endpoint")
     ai_search_api_key = os.getenv("cognitive_search_api_key")
 

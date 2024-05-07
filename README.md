@@ -20,6 +20,8 @@ This is your centralized, searchable knowledge space, where you store and organi
 
 ## How we built it
 Gino.AI leverages combined Azure Services and modern web technologies to create robust and trustworthy tools for our users. <br>
+### Solution Architecture: <br>
+![architecture](https://github.com/aiearthhack/gino/blob/main/Gino.AI%20general.png)
 ### Core Azure solutions:
 * Azure AI Vision: Analyze and extract text from images. (OCR and Clip models embedding)<br>
 * Azure AI Search: search service for indexing and efficient querying from Mind Base knowledge base data.<br>

@@ -11,12 +11,12 @@ from db import CosmosDBClient
 
 st.set_page_config(page_title="Gino", page_icon="🌎")
 
+if not auth.login():
+    st.stop()
+
 # Example Usage
 cosmos_client = CosmosDBClient()
 container = cosmos_client.get_container("Document")
-
-if not auth.login():
-    st.stop()
 
 st.markdown(
     '<style>a[data-testid="stPageLink-NavLink"]{border-style: solid; border-width: 2px; border-color: grey;}</style>',

@@ -31,9 +31,9 @@ def generate_embeddings(text):
     Latest model "text-embedding-3-small" returns 1536-dimensional embeddings.
     """
 
-    api_key = os.getenv("openai_api_key")
+    api_key = os.getenv("OPENAI_API_KEY")
     client = OpenAI(api_key=api_key)
-    model = os.getenv("openai_embeddings")
+    model = os.getenv("OPENAI_EMBEDDINGS")
 
     try:
         text = text.replace("\n", " ")
@@ -44,8 +44,8 @@ def generate_embeddings(text):
 
 
 def hybrid_search(query, user_id, index_name="gino-ai-search-index"):
-    ai_search_endpoint = os.getenv("cognitive_search_endpoint")
-    ai_search_api_key = os.getenv("cognitive_search_api_key")
+    ai_search_endpoint = os.getenv("COGNITIVE_SEARCH_ENDPOINT")
+    ai_search_api_key = os.getenv("COGNITIVE_SEARCH_API_KEY")
 
     endpoint = (
         f"{ai_search_endpoint}/indexes/{index_name}/docs/search?api-version=2023-11-01"
@@ -140,7 +140,7 @@ class AgentManger:
         ]
 
         self.llm = ChatOpenAI(
-            api_key=os.getenv("openai_api_key"),
+            api_key=os.getenv("OPENAI_API_KEY"),
             temperature=self.config.get("chat_temperature"),
             model_name=self.config.get("chat_model"),
         )

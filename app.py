@@ -81,7 +81,7 @@ if st.button("Capture"):
 
     st.session_state.captures.append(data)
 
-    st.write(data)
+    # st.write(data)
     # Create an item
     # container.upsert_item(data)
     col1, col2 = notification.columns([0.8, 0.2])

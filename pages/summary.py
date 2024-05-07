@@ -21,7 +21,7 @@ data["more_instructions"] = st.sidebar.text_area("More instructions:")
 submit = st.sidebar.button("Submit")
 
 if submit:
-    st.write(data)
+    # st.write(data)
     st.session_state["summary"] = summarize(st.session_state["captures"])
     st.write(st.session_state["summary"])
     st.page_link("pages/summary.py", label="Re-Generate Summary", icon="📝")

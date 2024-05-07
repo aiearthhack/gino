@@ -5,8 +5,6 @@ import requests
 from bs4 import BeautifulSoup
 import st_pages
 
-import auth
-
 # from db import CosmosDBClient
 
 
@@ -26,14 +24,11 @@ st.markdown(
 
 st_pages.show_pages(
     [
-        st_pages.Page("app.py", "Capture Anything", "🏠"),
-        st_pages.Page("pages/studio.py", "Studio", "📝"),
-        st_pages.Page("pages/summary.py", "Summary", "📝"),
-        st_pages.Page("pages/podcast.py", "Podcast", "📝"),
-        st_pages.Page("pages/askme.py", "Askme", "📝"),
-        # st_pages.Page('pages/askme.py', 'Ask Me', '📝'),
-        # st_pages.Page('pages/mindbase.py', 'Mind Base', '📝'),
-        # st_pages.Section('Interview')
+        st_pages.Page("app.py", "Knowledge Capture", "🤗"),
+        st_pages.Page("pages/studio.py", "Working Studio", "🎥"),
+        st_pages.Page("pages/summary.py", "Smart Summary", "📝"),
+        st_pages.Page("pages/podcast.py", "Personalized Podcast", "🎧"),
+        st_pages.Page("pages/askme.py", "Ask Me", "🙋‍♂️"),
     ]
 )
 

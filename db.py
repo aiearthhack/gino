@@ -3,17 +3,16 @@ from dotenv import load_dotenv
 
 from azure.cosmos import CosmosClient
 
-load_dotenv(override=True)
+from config_consts import COSMOSDB_URI, COSMOSDB_KEY, COSMOSDB_DATABASE_NAME
 
-import os
-from azure.cosmos import CosmosClient
+load_dotenv(override=True)
 
 
 class CosmosDBClient:
     def __init__(self):
-        self.url = os.environ.get("COSMOSDB_URI")
-        self.key = os.environ.get("COSMOSDB_KEY")
-        self.database_name = os.environ.get("COSMOSDB_DATABASE_NAME")
+        self.url = os.environ.get(COSMOSDB_URI)
+        self.key = os.environ.get(COSMOSDB_KEY)
+        self.database_name = os.environ.get(COSMOSDB_DATABASE_NAME)
 
         self._client = None
 

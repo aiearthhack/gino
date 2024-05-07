@@ -6,7 +6,8 @@ from bs4 import BeautifulSoup
 import st_pages
 
 import auth
-from db import CosmosDBClient
+
+# from db import CosmosDBClient
 
 
 st.set_page_config(page_title="Gino", page_icon="🌎")
@@ -15,8 +16,8 @@ if not auth.login():
     st.stop()
 
 # Example Usage
-cosmos_client = CosmosDBClient()
-container = cosmos_client.get_container("Document")
+# cosmos_client = CosmosDBClient()
+# container = cosmos_client.get_container("Document")
 
 st.markdown(
     '<style>a[data-testid="stPageLink-NavLink"]{border-style: solid; border-width: 2px; border-color: grey;}</style>',
@@ -87,7 +88,7 @@ if st.button("Capture"):
 
     st.write(data)
     # Create an item
-    container.upsert_item(data)
+    # container.upsert_item(data)
     col1, col2 = notification.columns([0.8, 0.2])
     col1.success("This is a success message!", icon="✅")
     col2.page_link("pages/studio.py", label="Go to Studio", icon="📝")

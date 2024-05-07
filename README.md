@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/aiearthhack/gino/blob/main/logo.png"></p>
+<p align="center"><img src="https://github.com/aiearthhack/gino/blob/main/logo2.png"></p>
 
 
 ## Inspiration
